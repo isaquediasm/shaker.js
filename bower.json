@@ -1,0 +1,22 @@
+{
+  "name": "ShakerJS",
+  "version": "0.0.1",
+  "homepage": "https://github.com/isaquediasm/shakerjs",
+  "authors": [
+    "Isaque Dias <isaquediasm@gmail.com>"
+  ],
+  "description": "Shake.js is a vanilla javascript plugin to provide a simple access to Vibration API",
+  "main": "shaker.js",
+  "keywords": [
+    "vibration",
+    "vanillajs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
