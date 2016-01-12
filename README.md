@@ -4,7 +4,7 @@ Shake.js is a vanilla javascript plugin to provide a simple access to Vibration 
 
 ## Installation
 
-# Bower
+### Bower
 
 ```sh
 bower install shakerjs
