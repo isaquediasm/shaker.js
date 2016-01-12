@@ -10,7 +10,7 @@ Shake.js is a vanilla javascript plugin to provide a simple access to Vibration 
 bower install shakerjs
 ```
 
-Include the **shake.js** file into the index.html
+Include the **shaker.js** file into the index.html
 
 
 ## How to use
