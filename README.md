@@ -21,7 +21,7 @@ Include the **shaker.js** file into the index.html
 var shaker = new Shaker();
 
 // Start a continuous vibrations based on the passed speed and duration (ms)
-shaker.continuousVibration('fast', 2000);
+shaker.continuousVibration({speed: 'fast', duration: 2000});
 
 // Start a single vibration based on duration(ms).
 shaker.vibrate(3000);

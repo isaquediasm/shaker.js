@@ -33,7 +33,7 @@
 	 */
 
 	Shaker.prototype.vibrate = function vibrate(duration) {
-		navigator.vibrate(duration);
+		navigator.vibrate(duration || 1000);
 	}
 
 
@@ -51,38 +51,50 @@
 	 * Starts a continuous vibration based on 
 	 * speed(slow, medium, fast) and duration (ms)
 	 *
-	 * @param {string}
+	 * @param {object}
 	 */
 
-	Shaker.prototype.continuousVibration = function (speed, duration) {
+	Shaker.prototype.continuousVibration = function (options) {
+
+		if (!options.speed || typeof options.speed !== 'string') {
+			throw new Error('First arg (speed) must be a string.');
+		}
+
+		if (options.duration !== 'undefined' && typeof options.duration !== 'number') {
+			throw new Error('Second arg (duration) must be a number.');
+		}
+
+
+		var speeds = {
+			'slow': {
+				'duration': 500,
+				'interval': 1000
+			},
+			'medium': {
+				'duration': 300,
+				'interval': 500
+			},
+			'fast': {
+				'duration': 200,
+				'interval': 300
+			}
+		}
 
 		// Start persistent vibration at given duration and interval
 		// Assumes a number value is given
-		function continuousVibration(_duration, _interval) {
+		function continuousVibration(opt) {
 			vibrateInterval = setInterval(function () {
-				Shaker.prototype.vibrate(_duration);
-			}, _interval);
+				Shaker.prototype.vibrate(opt.duration);
+			}, opt.interval);
 
-			if (duration)
-				setInterval(function () {
-					Shaker.prototype.stopVibrate();
-				}, duration);
+
+			setInterval(function () {
+				Shaker.prototype.stopVibrate();
+			}, options.duration || 2000);
 
 		}
 
-		switch (speed) {
-			case 'slow':
-				continuousVibration(500, 1000);
-				break;
-
-			case 'medium':
-				continuousVibration(300, 500);
-				break;
-
-			case 'fast':
-				continuousVibration(200, 300);
-				break;
-		}
+		continuousVibration(speeds[options.speed]);
 
 	}
 
