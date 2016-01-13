@@ -13,14 +13,8 @@
 	'use strict';
 
 	var vibrateInterval;
-	
-	var Shaker = function (options) {
-		/* 
-			{ duration: 100}
-		*/
-		this.options = options;
-	};
 
+	var Shaker = function () {};
 
 	/**
 	 * This method should return if browser supports
@@ -38,15 +32,15 @@
 	 * @param {string}
 	 */
 
-	Shaker.prototype.vibrate = function vibrate() {
-		navigator.vibrate(this.options.duration);
+	Shaker.prototype.vibrate = function vibrate(duration) {
+		navigator.vibrate(duration);
 	}
 
-	
+
 	/**
 	 * Stops a continuous vibration
 	 */
-	
+
 	Shaker.prototype.stopVibrate = function stopVibrate() {
 		// Clear interval and stop persistent vibrating
 		if (vibrateInterval) clearInterval(vibrateInterval);
@@ -59,7 +53,7 @@
 	 *
 	 * @param {string}
 	 */
-	
+
 	Shaker.prototype.continuousVibration = function (speed, duration) {
 
 		// Start persistent vibration at given duration and interval
@@ -75,7 +69,7 @@
 				}, duration);
 
 		}
-		
+
 		switch (speed) {
 			case 'slow':
 				continuousVibration(500, 1000);

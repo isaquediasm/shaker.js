@@ -2,20 +2,15 @@
 <html>
 
 <head>
-	<title>Vibrate.JS</title>
-	<script src="../shaker.js"></script>
-	<script>
-		var shaker = new Shaker({duration: 400});
-		shaker.continuousVibration('fast', 2000);
-
-		/*
-		startPeristentVibrate(100, 100);*/
-
-	</script>
+	<title>Shaker.JS</title>
 </head>
 
 <body>
-	
+	<script src="../shaker.js"></script>
+	<script>
+		var shaker = new Shaker();
+		shaker.continuousVibration('fast', 2000);
+	</script>
 </body>
 
 </html>
