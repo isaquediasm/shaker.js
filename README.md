@@ -25,6 +25,9 @@ shaker.continuousVibration('fast', 2000);
 
 // Start a single vibration based on duration(ms).
 shaker.vibrate(3000);
+
+// Vibrate 'SOS' in Morse.
+shaker.vibrate([100,30,100,30,100,200,200,30,200,30,200,200,100,30,100,30,100]); 
 ```
 
 ## Browser Support
